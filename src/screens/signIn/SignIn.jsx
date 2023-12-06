@@ -15,6 +15,10 @@ const SignIn = () => {
         setShowPassword(!showPassword);
     };
 
+    const handleSignIn = () => {
+        navigation.navigate('Home');
+    }
+
     return (
         <ScreenWrapper>
             <View style={styles.container}>
@@ -49,7 +53,7 @@ const SignIn = () => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.btnContainer}>
-                        <TouchableOpacity style={styles.btn}>
+                        <TouchableOpacity style={styles.btn} onPress={handleSignIn}>
                             <Text style={styles.btnText}>Sign In</Text>
                         </TouchableOpacity>
                     </View>

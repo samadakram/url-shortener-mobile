@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Splash from '../screens/splash/Splash';
 import SignIn from '../screens/signIn/SignIn';
 import SignUp from '../screens/signUp/SignUp';
+import DrawerNavigator from './drawerNavigator/DrawerNavigator';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,11 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name='SignUp'
                     component={SignUp}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name='Home'
+                    component={DrawerNavigator}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
