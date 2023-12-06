@@ -1,11 +1,19 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { Animated, View, Text, Image, StyleSheet } from 'react-native'
 import { logo } from '../../utils/constant';
 
 const Splash = () => {
 
   let navigation = useNavigation();
+
+  const imageScale = new Animated.Value(0.1);
+
+  Animated.timing(imageScale, {
+    toValue: 1,
+    duration: 2600,
+    useNativeDriver: true,
+  }).start();
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -20,7 +28,7 @@ const Splash = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={logo} />
+      <Animated.Image style={[styles.logo, { transform: [{ scale: imageScale }] }]} source={logo} />
     </View>
   )
 }
