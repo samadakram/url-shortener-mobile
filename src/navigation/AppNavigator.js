@@ -7,13 +7,31 @@ import SignUp from '../screens/signUp/SignUp';
 
 const Stack = createStackNavigator();
 
+const forFade = ({ current }) => ({
+    cardStyle: {
+        opacity: current.progress,
+    },
+});
+
 const AppNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen options={{headerShown: false}} name='Splash' component={Splash} />
-                <Stack.Screen options={{headerShown: false}} name='SignIn' component={SignIn} />
-                <Stack.Screen options={{headerShown: false}} name='SignUp' component={SignUp} />
+                <Stack.Screen
+                    name='Splash'
+                    component={Splash}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name='SignIn'
+                    component={SignIn}
+                    options={{ headerShown: false, cardStyleInterpolator: forFade }}
+                />
+                <Stack.Screen
+                    name='SignUp'
+                    component={SignUp}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
