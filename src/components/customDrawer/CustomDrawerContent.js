@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { Button, View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
 const CustomDrawerContent = (props) => {
     return (
-        <View style={styles.drawerContainer}>
+        <SafeAreaView style={styles.drawerContainer}>
             <View style={styles.profileHeader}>
                 <View style={styles.profileHeaderPicCircle}>
                     <Text style={{ fontSize: 25, color: '#fff' }}>S</Text>
@@ -12,10 +12,10 @@ const CustomDrawerContent = (props) => {
                 <Text style={styles.profileHeaderText}>Samad</Text>
             </View>
             <View style={styles.profileHeaderLine} />
-            <DrawerContentScrollView {...props}>
-                <DrawerItemList {...props} />
-            </DrawerContentScrollView>
-        </View>
+            {/* <DrawerContentScrollView style={{backgroundColor: 'black'}} {...props}> */}
+            <DrawerItemList  {...props} />
+            {/* </DrawerContentScrollView> */}
+        </SafeAreaView>
     )
 }
 
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#fff',
         textAlign: 'center',
-        padding: 15
+        padding: 15,
+        // marginTop: 15
     },
     profileHeaderPicCircle: {
         backgroundColor: '#0766ad',
@@ -52,7 +53,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#e2e2e2',
         height: 1,
         marginHorizontal: 20,
-        marginTop: 15
+        marginTop: 15,
+        marginBottom: 15
     }
 });
 
