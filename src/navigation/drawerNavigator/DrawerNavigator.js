@@ -14,9 +14,10 @@ const DrawerNavigator = () => {
             drawerContent={(props) => <CustomDrawerContent {...props} />}
             screenOptions={
                 {
-                    drawerActiveTintColor: '#0766ad',
+                    // drawerActiveTintColor: '#0766ad',
+                    drawerActiveTintColor: '#000000',
                     drawerInactiveTintColor: '#FFF',
-                    drawerActiveBackgroundColor: 'white',
+                    drawerActiveBackgroundColor: 'rgba(255, 255, 255, 0.3)',
                 }
             }
         >
@@ -28,36 +29,36 @@ const DrawerNavigator = () => {
                         <Icon
                             name="home"
                             size={size}
+                            color={focused ? '#000000' : '#fff'}
+                        />
+                    ),
+                }}
+            />
+            <Drawer.Screen
+                name='Links'
+                component={Link}
+                options={{
+                    drawerIcon: ({ focused, size }) => (
+                        <Icon
+                            name="link"
+                            size={size}
                             color={focused ? '#0766ad' : '#fff'}
                         />
                     ),
                 }}
             />
-            <Drawer.Screen 
-            name='Links' 
-            component={Link}
-            options={{
-                drawerIcon: ({ focused, size }) => (
-                    <Icon
-                        name="link"
-                        size={size}
-                        color={focused ? '#0766ad' : '#fff'}
-                    />
-                ),
-            }}
-            />
-            <Drawer.Screen 
-            name='Settings' 
-            component={Settings}
-            options={{
-                drawerIcon: ({ focused, size }) => (
-                    <Icon
-                        name="settings"
-                        size={size}
-                        color={focused ? '#0766ad' : '#fff'}
-                    />
-                ),
-            }}
+            <Drawer.Screen
+                name='Settings'
+                component={Settings}
+                options={{
+                    drawerIcon: ({ focused, size }) => (
+                        <Icon
+                            name="settings"
+                            size={size}
+                            color={focused ? '#0766ad' : '#fff'}
+                        />
+                    ),
+                }}
             />
         </Drawer.Navigator>
     )
