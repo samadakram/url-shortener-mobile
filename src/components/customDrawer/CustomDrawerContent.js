@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Button, View, Text, StyleSheet, SafeAreaView, Platform, TouchableOpacity } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
 const CustomDrawerContent = (props) => {
@@ -12,9 +12,14 @@ const CustomDrawerContent = (props) => {
                 <Text style={styles.profileHeaderText}>Samad</Text>
             </View>
             <View style={styles.profileHeaderLine} />
-            {/* <DrawerContentScrollView style={{backgroundColor: 'black'}} {...props}> */}
-            <DrawerItemList  {...props} />
-            {/* </DrawerContentScrollView> */}
+            <DrawerContentScrollView style={styles.drawerScroll} contentContainerStyle={{ paddingTop: 0 }} {...props}>
+                <DrawerItemList  {...props} />
+            </DrawerContentScrollView>
+            <View style={styles.signOutContainer}>
+                <TouchableOpacity style={{ backgroundColor: '#fff', height: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 5 }}>
+                    <Text style={{ color: 'black', fontWeight: '700' }}>Sign Out</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
@@ -54,7 +59,18 @@ const styles = StyleSheet.create({
         height: 1,
         marginHorizontal: 20,
         marginTop: 15,
-        marginBottom: 15
+        marginBottom: 10
+    },
+    signOutContainer: {
+        backgroundColor: '#fff',
+        width: '92%',
+        height: 40,
+        borderRadius: 5,
+        alignSelf: 'center',
+        bottom: 5
+    },
+    drawerScroll: {
+        // backgroundColor: 'black'
     }
 });
 
